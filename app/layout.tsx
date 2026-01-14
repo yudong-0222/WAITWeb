@@ -18,6 +18,9 @@ export const metadata: Metadata = {
       ? "https://waitmc.vercel.app"
       : "https://localhost:3000"
   ),
+  verification: {
+    google: "mxF9LMrgIKvrUOCO11NjcI6Tk-qQ5dB1Hqrd7dGRao8",
+  },
   title: {
     default: "WAIT Network | 槍戰伺服器",
     template: "%s | WAIT Network",
