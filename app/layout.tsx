@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     apple: "/aicon.png",
   },
   title: {
-    default: "WAIT Network | 槍戰伺服器",
+    default: "WAIT Network | SND 槍戰伺服器",
     template: "%s | WAIT Network",
   },
   description:
