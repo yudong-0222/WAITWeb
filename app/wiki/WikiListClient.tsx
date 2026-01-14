@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Post } from "../../types/post";
 import { typeStyles } from "../../types/typeStyle";
+import PostCard from "../components/PostCard";
 
 export default function WikiListClient({
   initialPosts,
@@ -32,7 +32,7 @@ export default function WikiListClient({
             Latest <span className="text-[#00FF96]">Intelligence</span>
           </h1>
           <p className="text-gray-500 tracking-widest text-sm uppercase">
-            {"// 監控 WAITNETWORK 的最新動向"}
+            {"// 監控 WAIT NETWORK 的最新動向"}
           </p>
         </header>
 
@@ -119,50 +119,8 @@ export default function WikiListClient({
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredPosts.map((post) => {
-                const style =
-                  typeStyles[post.type as keyof typeof typeStyles] ||
-                  typeStyles.wiki;
-
                 return (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      type: "tween",
-                      ease: "easeOut",
-                      duration: 0.7,
-                    }}
-                    key={post.slug}
-                    className="bg-[#131417] border border-white/5 p-5 group hover:border-[#00FF96]/30 transition-all rounded-sm flex flex-col"
-                  >
-                    <Link href={`/wiki/${post.type}/${post.slug}`}>
-                      <div className="h-40 mb-4 overflow-hidden relative border border-white/5">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                        />
-                        <div
-                          className={`absolute top-2 left-2 px-2 py-1 text-[9px] font-bold z-10 transition-all ${style.color} ${style.glow}`}
-                        >
-                          {style.label}
-                        </div>
-                      </div>
-                      <h4 className="text-white font-bold text-lg mb-2 group-hover:text-[#00FF96] transition-colors leading-tight">
-                        {post.title}
-                      </h4>
-                      <p className="text-gray-500 text-xs line-clamp-2 font-sans mb-4">
-                        {post.description}
-                      </p>
-                      <div className="mt-auto flex justify-between items-center text-[10px] text-gray-600 border-t border-white/5 pt-4">
-                        <span>{post.date}</span>
-                        <span className="group-hover:text-[#00FF96] transition-colors uppercase">
-                          READ REPORT_
-                        </span>
-                      </div>
-                    </Link>
-                  </motion.div>
+                  <PostCard key={post.slug} post={post} isAnimated={true} />
                 );
               })}
             </div>

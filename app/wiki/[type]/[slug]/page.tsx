@@ -1,4 +1,4 @@
-import { getPostBySlug } from "../../../../libs/markdown";
+import { getAllPosts, getPostBySlug } from "../../../../libs/markdown";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +7,8 @@ import rehypeHighlight from "rehype-highlight";
 import { parseHeadings } from "@/libs/parseHeadings";
 import rehypeSlug from "rehype-slug";
 import { typeStyles } from "@/types/typeStyle";
+import { Post } from "@/types/post";
+import PostCard from "@/app/components/PostCard";
 
 export default async function PostPage({
   params,
@@ -19,9 +21,7 @@ export default async function PostPage({
   if (!post) return notFound();
 
   const headings = parseHeadings(post.content);
-
   const style = typeStyles[type as keyof typeof typeStyles] || typeStyles.wiki;
-
   const proseStyles = `
     /* Basic Skeleton */
     prose prose-invert prose-emerald max-w-none font-sans text-sm md:text-base    
@@ -60,6 +60,27 @@ export default async function PostPage({
     prose-img:shadow-lg
     [&_img]:my-8
   `;
+
+  const allPost = getAllPosts() as Post[];
+
+  const sameTypePosts = allPost.filter(
+    (p) => p.type === type && p.slug !== slug
+  );
+
+  //srort by date
+  let rp = sameTypePosts
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
+
+  // if llength < 3 => other slugs posts come.
+  if (rp.length < 3) {
+    const backupPosts = allPost
+      .filter((p) => p.slug !== slug && !rp.find((r) => r.slug === p.slug))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 3 - rp.length);
+
+    rp = [...rp, ...backupPosts];
+  }
 
   return (
     <article className="min-h-screen bg-bg-dark text-white pt-32 pb-20 px-6">
@@ -112,6 +133,21 @@ export default async function PostPage({
               }}
             />
           </div>
+
+          {/* Relate read (read momre)*/}
+          <section className="mt-32 border-t border-white/10 pt-16">
+            <h3 className="text-[#00FF96] font-mono text-xs mb-8 tracking-[0.3em] uppercase flex items-center gap-4">
+              {"相關情報文件 // Related_Intelligence_Files"}
+              <div className="h-px flex-1 bg-white/5" />
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {rp.map((p) => (
+                <PostCard key={p.slug} post={p} isAnimated={false} />
+              ))}
+            </div>
+          </section>
+
           {/* Footer  */}
           <div className="mt-20 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-700">
             <span>END_OF_TRANSMISSION</span>
@@ -123,7 +159,7 @@ export default async function PostPage({
         <aside className="hidden lg:block w-64 sticky top-32 shrink-0">
           <div className="border-l border-white/5 pl-6">
             <h3
-              className={`${style.text} font-mono text-[10px] mb-6 tracking-[0.2em] uppercase opacity-50`}
+              className={`${style.text} font-mono text-[10px] mb-6 tracking-[0.2em] uppercase opacity-85`}
             >
               {"// Contents_Index"}
             </h3>
