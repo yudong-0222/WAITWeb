@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WAIT Network Official Website
 
-## Getting Started
+---
 
-First, run the development server:
+WAIT Network 是一個專為高品質槍戰與玩家競技而設計的 Minecraft 伺服器。此 Repo 為官方網頁，旨在提供優良的 SPA 使用體驗與視覺 UI 設計。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Technology Stack
+
+- Framework: Next.js 16
+- Animation: Framer Motion
+- Style: Tailwind CSS
+- Alert: SweetAlert2
+
+## Feature
+
+- HUD: 基本的 RWD 響應式設計；以及以軍事、戰術為主題的 UI/HUD。
+- BattleGround Preview: 動態展示地圖樣貌，且支援類別過濾（ALL、SND、DUEL、REALISTIC）。
+- Rader Animation: 基於 CSS 與 Framer Motion 實作的雷達掃描 UI。
+- Responsive Banner: FOOTER 上方的 CTA 橫幅。
+- Wiki & Docs(Under Development)。
+
+## Project Structure
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+├── app/                # Next.js App Router 核心邏輯
+├── components/         # 可複用 UI 組件 (Radar, MapPreview, etc.)
+├── datas/              # JSON 數據驅動中心 (Maps, Keywords)
+├── libs/               # 業務邏輯與工具函數 (SweetAlert 處理器)
+├── public/             # 靜態資源 (地圖截圖、WebP 影像)
+└── styles/             # 全域 CSS 與 Tailwind 設定
+```
