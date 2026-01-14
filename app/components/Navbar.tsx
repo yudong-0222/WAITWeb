@@ -26,8 +26,9 @@ export default function Navbar() {
   return (
     <motion.nav
       // motion animation
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 w-full z-50 transition-colors duration-500 py-6 ${
         isScrolled ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
       }`}
