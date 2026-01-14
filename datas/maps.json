@@ -3,49 +3,49 @@
     "id": "crash",
     "category": "SND",
     "name": "迫降陣地",
-    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "description": "圍繞墜毀直升機展開的城鎮戰，狹窄巷弄與高地建築交織。",
     "image": "/maps/crash.webp"
   },
   {
     "id": "hashki",
     "category": "SND",
     "name": "哈克尼倉庫",
-    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "description": "工業區的近距離遭遇戰，狹窄走廊與貨櫃間是散彈槍與衝鋒槍的天堂。",
     "image": "/maps/hashki.webp"
   },
   {
     "id": "island1",
     "category": "SND",
     "name": "彼岸之鄉（一）",
-    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "description": "懸浮於雲端的軍事要塞。在狹窄的浮島間，失足即是死亡；善用戰術掩體，鎖定唯一的咽喉路徑。",
     "image": "/maps/island1.webp"
   },
   {
     "id": "island2",
     "category": "SND",
     "name": "彼岸之鄉（二）",
-    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "description": "浮於雲端的軍事要塞，不過，已經過了幾年，島上也多了些變化...。",
     "image": "/maps/island2.webp"
   },
   {
     "id": "mirage",
     "category": "SND",
     "name": "Mirage",
-    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "description": "經典的異域風情集市荒漠。經典的三線式地圖設計。",
     "image": "/maps/mirage.webp"
   },
   {
     "id": "golag",
     "category": "DUEL",
-    "name": "迫降陣地",
-    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "name": "古拉格監獄",
+    "description": "1v1 的生存法則：活著的人才能重返戰場。對稱的封閉空間，只有最純粹的槍法對決。",
     "image": "/maps/golag.webp"
   },
   {
     "id": "trench",
     "category": "REALISTIC",
     "name": "鐵血戰壕",
-    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "description": "泥濘與鐵絲網交織的死亡地帶，窒息感十足的壕溝戰。",
     "image": "/maps/trench.webp"
   }
 ]

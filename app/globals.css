@@ -1,8 +1,27 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "highlight.js/styles/atom-one-dark.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+@theme {
+  --color-brand: #00ff96;
+  --color-bg-dark: #0a0a0b;
+}
+
+@layer base {
+  .prose-custom {
+    /* Customize MD text :D */
+    --tw-prose-invert-headings: #ffffff;
+    --tw-prose-invert-body: #9ca3af;
+    --tw-prose-invert-links: #00ff96;
+    --tw-prose-invert-bold: #00ff96;
+    --tw-prose-invert-code: #00ff96;
+    --tw-prose-invert-bullets: #00ff96;
+  }
 }
 
 @theme inline {

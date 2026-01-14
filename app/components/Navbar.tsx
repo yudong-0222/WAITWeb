@@ -7,9 +7,9 @@ import { handlePlayNow } from "../function//handlePlayNow";
 
 const navLinks = [
   { name: "HOME", href: "/" },
-  { name: "MODE", href: "#mode" },
-  { name: "MAPS", href: "#maps" },
-  { name: "WIKI", href: "https://wiki.waitmc.top" },
+  { name: "MODE", href: "/#mode" },
+  { name: "MAPS", href: "/#maps" },
+  { name: "WIKI", href: "/wiki" },
   { name: "STORE", href: "/" },
 ];
 

@@ -1,10 +1,6 @@
 # WAIT Network Official Website
 
----
-
 WAIT Network 是一個專為高品質槍戰與玩家競技而設計的 Minecraft 伺服器。此 Repo 為官方網頁，旨在提供優良的 SPA 使用體驗與視覺 UI 設計。
-
----
 
 ## Technology Stack
 
