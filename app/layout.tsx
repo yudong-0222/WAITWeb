@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   verification: {
     google: "mxF9LMrgIKvrUOCO11NjcI6Tk-qQ5dB1Hqrd7dGRao8",
   },
+  applicationName: "WAIT Network",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/aicon.png",
+  },
   title: {
     default: "WAIT Network | 槍戰伺服器",
     template: "%s | WAIT Network",
