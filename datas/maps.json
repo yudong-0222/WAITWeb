@@ -1,0 +1,51 @@
+[
+  {
+    "id": "crash",
+    "category": "SND",
+    "name": "迫降陣地",
+    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "image": "/maps/crash.webp"
+  },
+  {
+    "id": "hashki",
+    "category": "SND",
+    "name": "哈克尼倉庫",
+    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "image": "/maps/hashki.webp"
+  },
+  {
+    "id": "island1",
+    "category": "SND",
+    "name": "彼岸之鄉（一）",
+    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "image": "/maps/island1.webp"
+  },
+  {
+    "id": "island2",
+    "category": "SND",
+    "name": "彼岸之鄉（二）",
+    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "image": "/maps/island2.webp"
+  },
+  {
+    "id": "mirage",
+    "category": "SND",
+    "name": "Mirage",
+    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "image": "/maps/mirage.webp"
+  },
+  {
+    "id": "golag",
+    "category": "DUEL",
+    "name": "迫降陣地",
+    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "image": "/maps/golag.webp"
+  },
+  {
+    "id": "trench",
+    "category": "REALISTIC",
+    "name": "鐵血戰壕",
+    "description": "經典沙漠戰場，考驗狙擊與快速突破。",
+    "image": "/maps/trench.webp"
+  }
+]
