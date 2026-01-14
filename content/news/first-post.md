@@ -30,7 +30,7 @@ _We will post updates in the future!_
 ![](https://duk.tw/lEtmDk.png)
 
 ```cpp
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> // 同學，你這樣我們編譯沒辦法過，你分數要自己負責喔
 using namespace std;
 
 signed main(void) {

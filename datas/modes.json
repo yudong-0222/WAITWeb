@@ -4,20 +4,20 @@
     "title": "SND",
     "description": "經典爆破⨉策略對抗⨉團隊合作\n經典模式，爆破震撼！",
     "theme": "tech-green",
-    "href": "/modes/snd"
+    "href": "/wiki/wiki/gameWiki#snd---經典爆破"
   },
   {
     "id": "duel",
     "title": "DUEL",
     "description": "1v1 單挑對決\n生死一線，一決高下。",
     "theme": "icon-blue",
-    "href": "/modes/duel"
+    "href": "/wiki/wiki/gameWiki#duel---單挑對決"
   },
   {
     "id": "real",
     "title": "REALISTIC",
     "description": "戰場重現⨉高壓對局\n物競天擇，適者生存。",
     "theme": "tech-green",
-    "href": "/modes/realistic"
+    "href": "/wiki/wiki/gameWiki#realistic---寫實模式"
   }
 ]

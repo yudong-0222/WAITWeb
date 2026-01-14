@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import rehypeHighlight from "rehype-highlight";
+import { parseHeadings } from "@/libs/parseHeadings";
+import rehypeSlug from "rehype-slug";
 
 export default async function PostPage({
   params,
@@ -12,7 +14,10 @@ export default async function PostPage({
 }) {
   const { type, slug } = await params;
   const post = await getPostBySlug(type, slug);
+
   if (!post) return notFound();
+
+  const headings = parseHeadings(post.content);
 
   const proseStyles = `
     /* Basic Skeleton */
@@ -55,57 +60,85 @@ export default async function PostPage({
 
   return (
     <article className="min-h-screen bg-bg-dark text-white pt-32 pb-20 px-6">
-      <div className="max-w-3xl mx-auto">
-        <Link
-          href="/wiki"
-          className="text-[#00FF96] text-xs font-mono mb-8 inline-block hover:-translate-x-1 transition-transform"
-        >
-          {"< BACK_TO_DATABASE"}
-        </Link>
+      {" "}
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
+        <div className="flex-1 min-w-0 w-full">
+          <Link
+            href="/wiki"
+            className="text-[#00FF96] text-xs font-mono mb-8 inline-block hover:-translate-x-1 transition-transform"
+          >
+            {"< BACK_TO_DATABASE"}
+          </Link>
 
-        {/* TITLE */}
-        <header className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="px-2 py-1 bg-[#00FF96]/10 text-[#00FF96] text-[10px] font-bold border border-[#00FF96]/20">
-              {post.frontmatter.category}
-            </span>
-            <span className="text-gray-600 text-[10px] font-mono">
-              RECEIVED: {post.frontmatter.date}
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-black italic tracking-tighter mb-6 uppercase">
-            {post.frontmatter.title}
-          </h1>
-          {post.frontmatter.image && (
-            <div className="relative h-75 w-full mb-8 border border-white/5">
-              <Image
-                src={post.frontmatter.image}
-                alt="cover"
-                fill
-                className="object-cover "
-              />
+          {/* TITLE */}
+          <header className="mb-12">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="px-2 py-1 bg-[#00FF96]/10 text-[#00FF96] text-[10px] font-bold border border-[#00FF96]/20">
+                {post.frontmatter.category}
+              </span>
+              <span className="text-gray-600 text-[10px] font-mono">
+                RECEIVED: {post.frontmatter.date}
+              </span>
             </div>
-          )}
-        </header>
+            <h1 className="text-4xl md:text-5xl font-black italic tracking-tighter mb-6 uppercase">
+              {post.frontmatter.title}
+            </h1>
+            {post.frontmatter.image && (
+              <div className="relative h-75 w-full mb-8">
+                <Image
+                  src={post.frontmatter.image}
+                  alt="cover"
+                  fill
+                  className="object-cover rounded-2xl"
+                />
+              </div>
+            )}
+          </header>
 
-        {/* Post content redernign*/}
-        {/* Proose: a cool thing to make md -> html rendering */}
-        <div className={proseStyles}>
-          <MDXRemote
-            source={post.content}
-            options={{
-              mdxOptions: {
-                rehypePlugins: [rehypeHighlight],
-              },
-            }}
-          />
+          {/* Post content redernign*/}
+          {/* Proose: a cool thing to make md -> html rendering */}
+          <div className={proseStyles}>
+            <MDXRemote
+              source={post.content}
+              options={{
+                mdxOptions: {
+                  rehypePlugins: [rehypeHighlight, rehypeSlug],
+                },
+              }}
+            />
+          </div>
+          {/* Footer  */}
+          <div className="mt-20 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-700">
+            <span>END_OF_TRANSMISSION</span>
+            <span>WAIT_INTEL</span>
+          </div>
         </div>
 
-        {/* Footer  */}
-        <div className="mt-20 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-700">
-          <span>END_OF_TRANSMISSION</span>
-          <span>WAIT_INTEL</span>
-        </div>
+        {/* TOC - PC */}
+        <aside className="hidden lg:block w-64 sticky top-32 shrink-0">
+          <div className="border-l border-white/5 pl-6">
+            <h3 className="text-[#00FF96] font-mono text-[10px] mb-6 tracking-[0.2em] uppercase opacity-50">
+              {"// Contents_Index"}
+            </h3>
+            <nav className="flex flex-col gap-4">
+              {headings.map((heading) => (
+                <a
+                  key={heading.key}
+                  href={`#${heading.id}`}
+                  className={`text-[14px] uppercase tracking-wider transition-all duration-300 hover:text-[#00FF96] ${
+                    heading.level === 1
+                      ? "text-white font-black mb-1" //h1 bigger
+                      : heading.level === 3
+                      ? "pl-4 text-gray-600 border-l border-transparent hover:border-[#00FF96]/30"
+                      : "pl-2 text-gray-400 font-bold"
+                  }`}
+                >
+                  {heading.text}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
       </div>
     </article>
   );

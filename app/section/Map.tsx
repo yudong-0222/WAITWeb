@@ -24,12 +24,12 @@ export default function Map() {
           <GreenBar />
         </div>
 
-        <div className="flex gap-4 mb-12 border-b border-white/10 pb-4">
+        <div className="flex gap-4 md:gap-4 mb-12 border-b border-white/10 pb-4 overflow-x-visible no-scrollbar whitespace-nowrap scroll-smooth">
           {categories.map((c) => (
             <button
               key={c}
               onClick={() => setActiveTab(c)}
-              className={`px-6 py-2 text-xs font-bold tracking-widest transition-all relative ${
+              className={`px-4 md:px-6 py-2 text-[10px] md:text-xs font-bold tracking-widest transition-all relative shrink-0 ${
                 activeTab === c
                   ? "text-[#00FF96]"
                   : "text-gray-500 hover:text-white"
