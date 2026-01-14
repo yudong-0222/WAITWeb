@@ -1,10 +1,10 @@
-"use client"; // 標記為客戶端組件
-
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Post } from "../../types/post";
+import { typeStyles } from "../../types/typeStyle";
 
 export default function WikiListClient({
   initialPosts,
@@ -36,39 +36,60 @@ export default function WikiListClient({
           </p>
         </header>
 
-        {/* TOP STORY */}
-        {topStory && (
-          <section className="relative mb-20 group">
-            <div className="absolute left-0 top-0 w-1 h-full bg-[#00FF96] z-10" />
-            <Link href={`/wiki/${topStory.type}/${topStory.slug}`}>
-              <div className="relative h-100 w-full overflow-hidden rounded-sm border border-white/5 bg-[#1a1c20]">
-                <Image
-                  src={topStory.image}
-                  alt={topStory.title}
-                  fill
-                  className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
-                  priority
+        {/* PIN Post */}
+        {topStory &&
+          (() => {
+            const topStyle =
+              typeStyles[topStory.type as keyof typeof typeStyles] ||
+              typeStyles.wiki;
+            return (
+              <section className="relative mb-20 group">
+                <div
+                  className={`absolute left-0 top-0 w-1 h-full z-10 ${
+                    topStyle.color.split(" ")[0]
+                  }`}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-bg-dark via-transparent to-transparent" />
-
-                <div className="absolute bottom-0 left-0 p-10 z-10">
-                  <span className="text-[#00FF96] text-xs font-bold tracking-widest mb-2 block uppercase font-mono">
-                    TOP STORY
-                  </span>
-                  <h2 className="text-4xl font-black mb-4 tracking-tighter italic">
-                    {topStory.title}
-                  </h2>
-                  <p className="text-gray-400 text-sm max-w-xl mb-6 font-sans">
-                    {topStory.description}
-                  </p>
-                  <button className="px-6 py-2 bg-[#00FF96] text-black font-bold text-xs hover:bg-[#00cc78] transition-colors">
-                    VIEW FULL REPORT
-                  </button>
-                </div>
-              </div>
-            </Link>
-          </section>
-        )}
+                <Link href={`/wiki/${topStory.type}/${topStory.slug}`}>
+                  <div className="relative h-100 w-full overflow-hidden rounded-sm border border-white/5 bg-[#1a1c20]">
+                    <Image
+                      src={topStory.image}
+                      alt={topStory.title}
+                      fill
+                      className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-700"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-bg-dark via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-10 z-10">
+                      <span
+                        className={`text-xs font-bold tracking-widest mb-2 block uppercase font-mono ${topStyle.color.replace(
+                          "bg-",
+                          "text-"
+                        )}`}
+                      >
+                        TOP STORY //{" "}
+                        <span
+                          className={`${topStyle.text} font-bold uppercase tracking-widest`}
+                        >
+                          {topStyle.label}
+                        </span>
+                      </span>
+                      <h2 className="text-4xl font-black mb-4 tracking-tighter italic">
+                        {topStory.title}
+                      </h2>
+                      <p className="text-gray-400 text-sm max-w-xl mb-6 font-sans">
+                        {topStory.description}
+                      </p>
+                      <button
+                        className={`px-6 py-2 font-bold text-xs transition-colors ${topStyle.color} hover:opacity-80 pointer-events-none`}
+                      >
+                        VIEW FULL REPORT
+                      </button>
+                    </div>
+                  </div>
+                </Link>
+              </section>
+            );
+          })()}
 
         <div className="flex flex-col md:flex-row gap-12">
           <aside className="w-full md:w-48 shrink-0">
@@ -97,39 +118,53 @@ export default function WikiListClient({
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPosts.map((post) => (
-                <motion.div
-                  layout
-                  key={post.slug}
-                  className="bg-[#131417] border border-white/5 p-5 group hover:border-[#00FF96]/30 transition-all rounded-sm flex flex-col"
-                >
-                  <Link href={`/wiki/${post.type}/${post.slug}`}>
-                    <div className="h-40 mb-4 overflow-hidden relative border border-white/5">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                      />
-                      <div className="absolute top-2 left-2 px-2 py-1 bg-[#00FF96] text-black text-[9px] font-bold z-10">
-                        {post.category}
+              {filteredPosts.map((post) => {
+                const style =
+                  typeStyles[post.type as keyof typeof typeStyles] ||
+                  typeStyles.wiki;
+
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      type: "tween",
+                      ease: "easeOut",
+                      duration: 0.7,
+                    }}
+                    key={post.slug}
+                    className="bg-[#131417] border border-white/5 p-5 group hover:border-[#00FF96]/30 transition-all rounded-sm flex flex-col"
+                  >
+                    <Link href={`/wiki/${post.type}/${post.slug}`}>
+                      <div className="h-40 mb-4 overflow-hidden relative border border-white/5">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                        <div
+                          className={`absolute top-2 left-2 px-2 py-1 text-[9px] font-bold z-10 transition-all ${style.color} ${style.glow}`}
+                        >
+                          {style.label}
+                        </div>
                       </div>
-                    </div>
-                    <h4 className="text-white font-bold text-lg mb-2 group-hover:text-[#00FF96] transition-colors leading-tight">
-                      {post.title}
-                    </h4>
-                    <p className="text-gray-500 text-xs line-clamp-2 font-sans mb-4">
-                      {post.description}
-                    </p>
-                    <div className="mt-auto flex justify-between items-center text-[10px] text-gray-600 border-t border-white/5 pt-4">
-                      <span>{post.date}</span>
-                      <span className="group-hover:text-[#00FF96] transition-colors uppercase">
-                        READ REPORT_
-                      </span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+                      <h4 className="text-white font-bold text-lg mb-2 group-hover:text-[#00FF96] transition-colors leading-tight">
+                        {post.title}
+                      </h4>
+                      <p className="text-gray-500 text-xs line-clamp-2 font-sans mb-4">
+                        {post.description}
+                      </p>
+                      <div className="mt-auto flex justify-between items-center text-[10px] text-gray-600 border-t border-white/5 pt-4">
+                        <span>{post.date}</span>
+                        <span className="group-hover:text-[#00FF96] transition-colors uppercase">
+                          READ REPORT_
+                        </span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </div>
           </main>
         </div>

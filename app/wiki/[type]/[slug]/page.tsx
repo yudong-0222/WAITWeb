@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import rehypeHighlight from "rehype-highlight";
 import { parseHeadings } from "@/libs/parseHeadings";
 import rehypeSlug from "rehype-slug";
+import { typeStyles } from "@/types/typeStyle";
 
 export default async function PostPage({
   params,
@@ -18,6 +19,8 @@ export default async function PostPage({
   if (!post) return notFound();
 
   const headings = parseHeadings(post.content);
+
+  const style = typeStyles[type as keyof typeof typeStyles] || typeStyles.wiki;
 
   const proseStyles = `
     /* Basic Skeleton */
@@ -73,7 +76,9 @@ export default async function PostPage({
           {/* TITLE */}
           <header className="mb-12">
             <div className="flex items-center gap-4 mb-4">
-              <span className="px-2 py-1 bg-[#00FF96]/10 text-[#00FF96] text-[10px] font-bold border border-[#00FF96]/20">
+              <span
+                className={`px-2 py-1 ${style.color} ${style.glow} text-[10px] font-bold`}
+              >
                 {post.frontmatter.category}
               </span>
               <span className="text-gray-600 text-[10px] font-mono">
@@ -89,7 +94,7 @@ export default async function PostPage({
                   src={post.frontmatter.image}
                   alt="cover"
                   fill
-                  className="object-cover rounded-2xl"
+                  className="object-cover rounded-sm"
                 />
               </div>
             )}
@@ -117,7 +122,9 @@ export default async function PostPage({
         {/* TOC - PC */}
         <aside className="hidden lg:block w-64 sticky top-32 shrink-0">
           <div className="border-l border-white/5 pl-6">
-            <h3 className="text-[#00FF96] font-mono text-[10px] mb-6 tracking-[0.2em] uppercase opacity-50">
+            <h3
+              className={`${style.text} font-mono text-[10px] mb-6 tracking-[0.2em] uppercase opacity-50`}
+            >
               {"// Contents_Index"}
             </h3>
             <nav className="flex flex-col gap-4">
