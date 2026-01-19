@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     apple: "/aicon.png",
   },
   title: {
-    default: "WAIT Network | SND 槍戰伺服器",
-    template: "%s | WAIT Network",
+    default: "WAIT Network 槍戰伺服器 | 台灣最強 Minecraft SND 競技",
+    template: "%s | WAIT Network 台灣槍戰伺服器",
   },
   description:
-    "在 Minecraft 體驗如 COD 般的槍戰。包含經典爆破、單挑對決與寫實等多種模式。",
+    "台灣 Minecraft 槍戰伺服器。在 Minecraft 體驗如 COD 般的槍戰。包含經典爆破、單挑對決與寫實等多種模式。",
   keywords: [
     "minecraft",
     "wait",
@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     "snd wiki",
     "遊戲 wiki",
     "槍戰伺服器",
+    "台灣槍戰伺服器",
     "槍械伺服器",
     "minecrat 伺服器",
     "minecraft 槍戰伺服器",
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "WAIT Network",
-    description: "加入 WAIT，體驗極致戰術競技。",
+    description: "加入 WAIT，體驗新世代台灣 Minecraft 槍戰伺服器。",
     url: "https://waitmc.vercel.app",
     siteName: "WAIT Network",
     images: [
@@ -80,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-TW">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

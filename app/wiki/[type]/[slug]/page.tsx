@@ -10,6 +10,31 @@ import { typeStyles } from "@/types/typeStyle";
 import { Post } from "@/types/post";
 import PostCard from "@/app/components/PostCard";
 
+//For SEO
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ type: string; slug: string }>;
+}) {
+  const { type, slug } = await params;
+  const post = await getPostBySlug(type, slug);
+
+  if (!post) return { title: "Post Not Found" };
+
+  return {
+    title: post.frontmatter.title,
+    description:
+      post.frontmatter.description ||
+      `閱讀關於 ${post.frontmatter.title} 的最新情報。`,
+    openGraph: {
+      title: `${post.frontmatter.title} | WAIT Network 槍戰伺服器`,
+      description: post.frontmatter.description,
+      type: "article",
+      images: [post.frontmatter.image || "/og-image.jpg"],
+    },
+  };
+}
+
 export default async function PostPage({
   params,
 }: {
