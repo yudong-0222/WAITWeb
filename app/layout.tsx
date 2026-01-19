@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === "production"
       ? "https://waitmc.vercel.app"
-      : "https://localhost:3000"
+      : "https://localhost:3000",
   ),
   verification: {
     google: "mxF9LMrgIKvrUOCO11NjcI6Tk-qQ5dB1Hqrd7dGRao8",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     "決勝時刻 minecraft",
   ],
   openGraph: {
-    title: "WAIT Network",
+    title: "WAIT Network | 台灣槍戰伺服器",
     description: "加入 WAIT，體驗新世代台灣 Minecraft 槍戰伺服器。",
     url: "https://waitmc.vercel.app",
     siteName: "WAIT Network",
@@ -80,11 +80,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //Inejection JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "WAIT Network",
+    alternateName: ["WAITMC", "WAIT 槍戰伺服器", "WAIT MC", "WAITMC 伺服器"],
+    url: "https://waitmc.vercel.app",
+  };
+
   return (
     <html lang="zh-TW">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
