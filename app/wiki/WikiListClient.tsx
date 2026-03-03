@@ -24,7 +24,7 @@ export default function WikiListClient({
     .filter((post) => filter === "全部" || post.category === filter);
 
   return (
-    <div className="min-h-screen bg-bg-dark text-white pt-32 pb-20 px-6 font-mono">
+    <div className="min-h-screen bg-dark-bg text-white pt-32 pb-20 px-6 font-mono">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="text-center mb-16">
