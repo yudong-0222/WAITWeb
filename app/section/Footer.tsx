@@ -76,9 +76,13 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/wiki"
-                    className="hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
+                    className="relative inline-block hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
                   >
                     {"//"} WIKI
+                    <span
+                      aria-hidden="true"
+                      className="absolute -right-2 -top-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-black/70 shadow-[0_0_8px_rgba(239,68,68,0.8)]"
+                    />
                   </Link>
                 </li>
                 <li>

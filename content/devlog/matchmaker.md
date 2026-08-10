@@ -4,8 +4,10 @@ date: "2026-02-14"
 type: "devlog"
 category: "開發日誌"
 description: "我們改良了伺服器本身的配對機制"
-image: "/maps/island1.webp"
+image: "/postImg/MTAC.webp"
 isTop: false
 ---
 
-# 撰寫中...
+# MatchMaker，全新的配對機制
+
+我們正式實裝了新的配對系統...(剩餘撰寫中)
