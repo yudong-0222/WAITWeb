@@ -108,7 +108,7 @@ export default async function PostPage({
   }
 
   return (
-    <article className="min-h-screen bg-bg-dark text-white pt-32 pb-20 px-6">
+    <article className="min-h-screen bg-dark-bg text-white pt-32 pb-20 px-6">
       {" "}
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
         <div className="flex-1 min-w-0 w-full">
