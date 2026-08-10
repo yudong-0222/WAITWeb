@@ -63,6 +63,12 @@ export default function Navbar() {
               className="relative text-sm font-medium text-gray-400 hover:text-white transition-colors tracking-widest"
             >
               {link.name}
+              {link.name === "WIKI" && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-2 -top-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-black/70 shadow-[0_0_8px_rgba(239,68,68,0.8)]"
+                />
+              )}
               {hoveredLink === link.name && (
                 <motion.div
                   layoutId="nav-underline"

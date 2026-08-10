@@ -25,7 +25,7 @@ export default function Hero() {
             <span className="text-icon-blue"> Network</span>
           </h1>
           <p className="text-gray-300 text-xl mb-8">
-            經典爆破 / 單挑對決 / 寫實模式 / FPS in Minecraft!
+            經典爆破 / 單挑對決 / 寫實模式 / FPS in Minecraft
           </p>
           <IPButton />
         </div>
