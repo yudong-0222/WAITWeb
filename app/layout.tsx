@@ -90,7 +90,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="zh-TW" suppressHydrationWarning>
+    <html lang="zh-TW" suppressHydrationWarning data-scroll-behavior="smooth">
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
