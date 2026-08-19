@@ -1,6 +1,6 @@
-import Swal from "sweetalert2";
-export const handlePlayNow = () => {
-  Swal.fire({
+export const handlePlayNow = async () => {
+  const Swal = (await import("sweetalert2")).default;
+  const result = Swal.fire({
     title:
       '<span class="font-mono text-[#00FF96]">SYSTEM_STATUS: OFFLINE</span>',
     html: `
@@ -35,9 +35,9 @@ export const handlePlayNow = () => {
       cancelButton:
         "px-6 py-2 font-bold tracking-widest uppercase text-xs text-gray-500 underline",
     },
-  }).then((result) => {
-    if (result.isConfirmed) {
-      window.open("https://discord.gg/RNJQFYbjVp", "_blank");
-    }
   });
+
+  if ((await result).isConfirmed) {
+    window.open("https://discord.gg/RNJQFYbjVp", "_blank");
+  }
 };

@@ -1,15 +1,16 @@
 "use client";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import Swal from "sweetalert2";
 
 export default function IPButton() {
   const [copied, setCopied] = useState(false);
   const ip = "waitmc.top";
 
-  const copyIP = () => {
+  const copyIP = async () => {
     navigator.clipboard.writeText(ip);
     setCopied(true);
+
+    const Swal = (await import("sweetalert2")).default;
 
     Swal.fire({
       title: "SUCCESS",

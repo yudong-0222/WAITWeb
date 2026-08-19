@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "motion/react";
 import Radar from "../components/Radar";
-import Swal from "sweetalert2";
 
 export default function Join() {
   const ip = "waitmc.top";
 
-  const copyIP = () => {
+  const copyIP = async () => {
     navigator.clipboard.writeText(ip);
+    const Swal = (await import("sweetalert2")).default;
+
     Swal.fire({
       title: "SYSTEM DECODED",
       text: "伺服器 IP 已成功存入剪貼簿",
