@@ -38,6 +38,10 @@ export const handlePlayNow = async () => {
   });
 
   if ((await result).isConfirmed) {
-    window.open("https://discord.gg/RNJQFYbjVp", "_blank");
+    window.open(
+      "https://discord.gg/RNJQFYbjVp",
+      "_blank",
+      "noopener,noreferrer",
+    );
   }
 };
