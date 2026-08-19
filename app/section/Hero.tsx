@@ -10,6 +10,7 @@ export default function Hero() {
         src="/hero.jpg"
         alt="WaitNetwork Hero"
         fill
+        sizes="100vw"
         className="object-cover "
         priority
       />

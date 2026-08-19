@@ -55,6 +55,7 @@ export default function WikiListClient({
                       src={topStory.image}
                       alt={topStory.title}
                       fill
+                      sizes="(min-width: 1328px) 1280px, calc(100vw - 48px)"
                       className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-700"
                       priority
                     />

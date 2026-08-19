@@ -23,6 +23,7 @@ export default function PostCard({ post, isAnimated = false }: PostCardProps) {
             src={post.image}
             alt={post.title}
             fill
+            sizes="(min-width: 1328px) 291px, (min-width: 1024px) calc(33.333vw - 152px), (min-width: 768px) calc(50vw - 76px), calc(100vw - 88px)"
             className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
           />
           <div
