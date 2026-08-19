@@ -7,6 +7,7 @@ import rehypeHighlight from "rehype-highlight";
 import { parseHeadings } from "@/libs/parseHeadings";
 import rehypeSlug from "rehype-slug";
 import rehypeStrikethrough from "@/libs/rehypeStrikethrough";
+import rehypeSpoiler from "@/libs/rehypeSpoiler";
 import { typeStyles } from "@/types/typeStyle";
 import { Post } from "@/types/post";
 import PostCard from "@/app/components/PostCard";
@@ -78,6 +79,7 @@ export default async function PostPage({
     [&_blockquote_p:before]:content-none [&_blockquote_p:after]:content-none
     prose-blockquote:border-l-[#00FF96] prose-blockquote:bg-[#00FF96]/5 
     prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:italic
+    [&_blockquote_strong]:font-bold
 
     /* Picutre bodarder */
     prose-img:rounded-xl 
@@ -141,6 +143,7 @@ export default async function PostPage({
                   src={post.frontmatter.image}
                   alt="cover"
                   fill
+                  sizes="(min-width: 1200px) 848px, (min-width: 1024px) calc(100vw - 352px), calc(100vw - 48px)"
                   className="object-cover rounded-sm"
                 />
               </div>
@@ -158,6 +161,7 @@ export default async function PostPage({
                     rehypeHighlight,
                     rehypeSlug,
                     rehypeStrikethrough,
+                    rehypeSpoiler,
                   ],
                 },
               }}
