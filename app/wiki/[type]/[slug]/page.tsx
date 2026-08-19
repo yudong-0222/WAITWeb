@@ -128,7 +128,7 @@ export default async function PostPage({
               >
                 {post.frontmatter.category}
               </span>
-              <span className="text-gray-600 text-[10px] font-mono">
+              <span className="text-white-600 text-[12px] font-mono">
                 RECEIVED: {post.frontmatter.date}
               </span>
             </div>
@@ -189,7 +189,7 @@ export default async function PostPage({
         <aside className="hidden lg:block w-64 sticky top-32 shrink-0">
           <div className="border-l border-white/5 pl-6">
             <h3
-              className={`${style.text} font-mono text-[10px] mb-6 tracking-[0.2em] uppercase opacity-85`}
+              className={`${style.text} font-mono text-[12px] mb-6 tracking-[0.2em] uppercase opacity-95`}
             >
               {"// Contents_Index"}
             </h3>
@@ -202,8 +202,8 @@ export default async function PostPage({
                     heading.level === 1
                       ? "text-white font-black mb-1" //h1 bigger
                       : heading.level === 3
-                        ? "pl-4 text-gray-600 border-l border-transparent hover:border-[#00FF96]/30"
-                        : "pl-2 text-gray-400 font-bold"
+                        ? "pl-4 text-gray-500 border-l border-transparent hover:border-[#00FF96]/30"
+                        : "pl-2 text-gray-300 font-bold"
                   }`}
                 >
                   {heading.text}
