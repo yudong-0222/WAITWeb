@@ -15,6 +15,25 @@ isTop: true
 本指南將會從頭開始介紹 `Search And Destroy` 中所有模式的遊玩方法，以及當中的操作按鍵。  
 電腦版可以藉由右邊的 **TOC 目錄**，快速跳轉至想看的地方。
 
+## 開始遊玩
+
+### 目前開放狀態
+
+伺服器當前處於**內測**狀態，我們也會有不定期的小測試開放給大家遊玩，相關資訊與通知會在第一時間於 [Discord](https://discord.com/invite/RNJQFYbjVp) 中公告，建議加入避免錯過相關資訊！
+
+### 支援版本
+
+當前版本：僅支援 「正版」**JAVA Edition** `1.21.4`。  
+我們很快會提升至 `1.21.11`。
+
+**不需要安裝任何模組**即可遊玩；材質包則是會在你進入伺服器的時候自動強制裝載。
+
+### 如何加入伺服器
+
+加入 [Discord](https://discord.com/invite/RNJQFYbjVp) 並且成為伺服器成員，獲得「玩家」身分組後即具備資格！
+
+---
+
 ## 遊戲簡介
 
 `Search And Destroy` 目前共推出三種模式：
@@ -58,7 +77,6 @@ isTop: true
 > 與傳統的競技模式不同，這裡沒有快節奏的突襲，只有令人窒息的對峙與一瞬間的生死交鋒。
 
 - 核心設定：壕溝戰場
-
   - 地形構造：戰場由縱橫交錯的壕溝、碉堡、無人區、散兵坑等軍事工藝組成。壕溝外通常伴隨鐵絲網與掩體，暴露在壕溝外往往意味著死亡。
   - 視野受限：由於身處深邃的壕溝中，玩家的視線常被限制在狹窄的通道內，轉角處的遭遇戰頻率極高。
 
@@ -81,4 +99,111 @@ isTop: true
 
 ## 常見問題 FAQ
 
-(...)
+> Q: WAITMC 是免費遊玩的嗎？有 Pay-to-Win 嗎？  
+> A: **WAITMC 可以免費遊玩。** 目前付費內容及商城系統仍在規劃階段，預計將以**槍枝造型（Gun Skins）**、**MVP 音樂包**等內容為主；**戰鬥通行證（Battle Pass）**則屬於較後期的規劃，目前尚未實裝。
+>
+> 相關付費內容與系統仍可能有所調整，實際內容將以日後正式公告為準。
+
+> Q: 我可以和朋友一起組隊遊玩嗎？  
+> A: 目前尚未提供 Party 組隊功能。不過在進入對局並選擇隊伍時，你可以事先與朋友約定選擇相同隊伍，一樣可以達到與朋友並肩作戰的效果。
+>
+> Party 系統將視後續開發情況決定是否加入。
+
+> Q: 內測期間的遊戲資料會保留到正式開服嗎？  
+> A: **不會，目前的內測資料將會全數重置。**
+>
+> 現階段保存的玩家資料主要包含 Kills、StatTrak 數字、已解鎖的音樂包以及 Loadouts 資料。若後續更新加入更多個人戰績或其他持久化資料，我們將視實際情況調整，並另行公告相關資料是否保留。
+
+> Q: 遊戲中途斷線或離開對局會怎麼樣？  
+> A: 目前尚未支援斷線重連（Re-connect），同時也暫時沒有離場懲罰。
+>
+> 未來的 Ranked Mode 上線後，預期會加入斷線重連及離場懲罰等機制，並視實際運作情況考慮將 Re-connect 功能普及至 Unranked Matches。
+
+> Q: 遇到外掛或違規玩家該如何檢舉？  
+> A: 請前往 Discord [開啟客服單（Ticket）](https://discord.com/channels/860827890307432468/1113074967421132840)進行檢舉，並盡可能提供相關資訊與證據，以利管理團隊進行查證及處理。
+
+> Q: 發現 BUG 或遊戲異常該去哪裡回報？  
+> A: 請前往 Discord 的 [問題回報論壇](https://discord.com/channels/860827890307432468/1107307332632846476) 進行回報。回報時請盡可能描述問題發生的情況，以協助我們確認及處理問題。
+
+> Q: 可以實況、錄影或上傳 WAITMC 的遊玩內容嗎？  
+> A: **完全可以！** 我們不限制玩家實況、錄影或上傳 WAITMC 的遊玩內容，也歡迎大家分享自己的遊戲過程與精彩時刻。
+
+> Q: 我可以使用 Lunar Client、Feather Client 或其他第三方客戶端嗎？  
+> A: **可以**。WAIT Network 不限制玩家使用 Lunar Client、Feather Client、Fabric 等第三方客戶端，但玩家**有義務確保所使用的模組及功能符合伺服器規範。**  
+> 若你無法確定某個 Client、Mod 或功能是否允許使用，請在使用前至 [Discord](https://discord.com/invite/RNJQFYbjVp) 詢問管理團隊。
+
+:::spoiler 點我查看模組與功能清單
+
+#### 允許使用
+
+- 效能最佳化模組（如 Sodium、Lithium 等）
+- FPS、Ping、CPS 等資訊顯示
+- ToggleSprint / ToggleSneak
+- GUI / HUD 位置調整
+- 按鍵顯示（Keystrokes）
+- Replay / 錄影相關模組 ※ 僅限錄影及回放用途
+- Shaders / 光影
+- 不影響遊戲公平性的外觀、效能與便利性模組
+
+#### 禁止使用
+
+包含但不限於以下功能：
+
+**視野與情報優勢**
+
+- Zoom / 縮放功能
+- FreeLook / Perspective Mod
+- X-Ray
+- ESP / Player ESP / Entity ESP
+- Tracers
+- Radar / Player Radar
+- 可顯示玩家或實體位置的 Minimap
+- 可隔牆或超出正常可見範圍顯示玩家的 Name Tags
+- Fullbright ※ 若其效果足以繞過地圖原有的視野限制
+- 任何能透過牆壁、煙霧、地形或其他障礙物取得原本不可見資訊的功能
+
+**戰鬥輔助**
+
+- Aim Assist / Aimbot
+- TriggerBot
+- KillAura
+- AutoClicker
+- Reach
+- Hitbox Expansion
+- No Recoil / 自動壓槍
+- Rapid Fire
+- 自動射擊、自動瞄準或其他代替玩家完成戰鬥操作的功能
+
+**移動與玩家能力**
+
+- Fly
+- Speed
+- Bhop
+- NoSlow
+- Spider
+- Step
+- High Jump
+- NoFall
+- Phase
+- Anti-Knockback / Velocity
+- 任何修改正常移動速度、碰撞、擊退或玩家物理行為的功能
+
+**自動化與巨集**
+
+- Macro / 巨集 ※ 一鍵或持續自動執行多個遊戲操作
+- AutoHotkey 等自動化腳本
+- 自動連點、自動射擊、自動換彈等功能
+- 任何透過腳本、模組或外部程式代替玩家完成戰鬥操作的功能
+
+#### 無法確定的功能
+
+若你無法確定某個 Client、Mod 或功能是否允許使用，請在使用前至 [Discord](https://discord.com/invite/RNJQFYbjVp) 詢問管理團隊。
+
+**「Client 有提供這項功能」不代表 WAIT Network 允許使用。**
+
+上述清單僅列出常見範例，無法涵蓋所有第三方模組與作弊行為。  
+即使某項功能未被明確列出，只要其效果足以提供**不公平的競技優勢**，管理團隊仍有理由將其視為違規功能。
+
+:::
+
+> 更多問題？到 [Discord](https://discord.com/invite/RNJQFYbjVp) 請求支援
