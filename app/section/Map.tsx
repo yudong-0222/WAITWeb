@@ -29,7 +29,7 @@ export default function Map() {
             <button
               key={c}
               onClick={() => setActiveTab(c)}
-              className={`px-4 md:px-6 py-2 text-[10px] md:text-xs font-bold tracking-widest transition-all relative shrink-0 ${
+              className={`px-4 md:px-6 py-2 text-[10px] md:text-lg font-bold tracking-widest transition-all relative shrink-0 ${
                 activeTab === c
                   ? "text-[#00FF96]"
                   : "text-gray-500 hover:text-white"
@@ -67,6 +67,7 @@ export default function Map() {
                     src={map.image}
                     alt={map.name}
                     fill
+                    sizes="(min-width: 1328px) 406px, (min-width: 1024px) calc(33.333vw - 37px), (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {/* grow up inside */}
