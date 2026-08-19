@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import rehypeHighlight from "rehype-highlight";
 import { parseHeadings } from "@/libs/parseHeadings";
 import rehypeSlug from "rehype-slug";
+import rehypeStrikethrough from "@/libs/rehypeStrikethrough";
 import { typeStyles } from "@/types/typeStyle";
 import { Post } from "@/types/post";
 import PostCard from "@/app/components/PostCard";
@@ -89,7 +90,7 @@ export default async function PostPage({
   const allPost = getAllPosts() as Post[];
 
   const sameTypePosts = allPost.filter(
-    (p) => p.type === type && p.slug !== slug
+    (p) => p.type === type && p.slug !== slug,
   );
 
   //srort by date
@@ -108,7 +109,7 @@ export default async function PostPage({
   }
 
   return (
-    <article className="min-h-screen bg-dark-bg text-white pt-32 pb-20 px-6">
+    <article className="min-h-screen bg-dark-bg text-white pt-8 pb-20 px-6">
       {" "}
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
         <div className="flex-1 min-w-0 w-full">
@@ -135,7 +136,7 @@ export default async function PostPage({
               {post.frontmatter.title}
             </h1>
             {post.frontmatter.image && (
-              <div className="relative h-75 w-full mb-8">
+              <div className="relative aspect-video w-full mb-8">
                 <Image
                   src={post.frontmatter.image}
                   alt="cover"
@@ -153,7 +154,11 @@ export default async function PostPage({
               source={post.content}
               options={{
                 mdxOptions: {
-                  rehypePlugins: [rehypeHighlight, rehypeSlug],
+                  rehypePlugins: [
+                    rehypeHighlight,
+                    rehypeSlug,
+                    rehypeStrikethrough,
+                  ],
                 },
               }}
             />
@@ -197,8 +202,8 @@ export default async function PostPage({
                     heading.level === 1
                       ? "text-white font-black mb-1" //h1 bigger
                       : heading.level === 3
-                      ? "pl-4 text-gray-600 border-l border-transparent hover:border-[#00FF96]/30"
-                      : "pl-2 text-gray-400 font-bold"
+                        ? "pl-4 text-gray-600 border-l border-transparent hover:border-[#00FF96]/30"
+                        : "pl-2 text-gray-400 font-bold"
                   }`}
                 >
                   {heading.text}
