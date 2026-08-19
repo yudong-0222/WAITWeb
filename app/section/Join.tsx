@@ -6,21 +6,27 @@ export default function Join() {
   const ip = "waitmc.top";
 
   const copyIP = async () => {
-    navigator.clipboard.writeText(ip);
-    const Swal = (await import("sweetalert2")).default;
+    try {
+      await navigator.clipboard.writeText(ip);
 
-    Swal.fire({
-      title: "SYSTEM DECODED",
-      text: "伺服器 IP 已成功存入剪貼簿",
-      icon: "success",
-      background: "#0a0a0b",
-      color: "#00FF96",
-      confirmButtonColor: "#00FF96",
-      buttonsStyling: true,
-      customClass: {
-        popup: "border border-[#00FF96]/30 font-mono",
-      },
-    });
+      const Swal = (await import("sweetalert2")).default;
+
+      await Swal.fire({
+        icon: "success",
+        title: "SUCCESS",
+        text: "已成功複製伺服器 IP",
+      });
+    } catch (error) {
+      const Swal = (await import("sweetalert2")).default;
+
+      await Swal.fire({
+        icon: "error",
+        title: "FAILED",
+        text: "複製 IP 發生錯誤，請再試一次。",
+      });
+
+      console.error("Failed to copy server IP:", error);
+    }
   };
 
   return (
