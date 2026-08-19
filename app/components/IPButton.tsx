@@ -7,7 +7,7 @@ export default function IPButton() {
   const ip = "waitmc.top";
 
   const copyIP = async () => {
-    navigator.clipboard.writeText(ip);
+    await navigator.clipboard.writeText(ip);
     setCopied(true);
 
     const Swal = (await import("sweetalert2")).default;
