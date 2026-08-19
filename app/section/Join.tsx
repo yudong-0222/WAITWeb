@@ -1,25 +1,47 @@
 "use client";
 import { motion } from "motion/react";
 import Radar from "../components/Radar";
-import Swal from "sweetalert2";
 
 export default function Join() {
   const ip = "waitmc.top";
 
-  const copyIP = () => {
-    navigator.clipboard.writeText(ip);
-    Swal.fire({
-      title: "SYSTEM DECODED",
-      text: "伺服器 IP 已成功存入剪貼簿",
-      icon: "success",
-      background: "#0a0a0b",
-      color: "#00FF96",
-      confirmButtonColor: "#00FF96",
-      buttonsStyling: true,
-      customClass: {
-        popup: "border border-[#00FF96]/30 font-mono",
-      },
-    });
+  const copyIP = async () => {
+    try {
+      await navigator.clipboard.writeText(ip);
+    } catch (error) {
+      console.error("Failed to copy server IP:", error);
+
+      try {
+        const Swal = (await import("sweetalert2")).default;
+        await Swal.fire({
+          icon: "error",
+          title: "COPY FAILED",
+          text: "無法複製伺服器 IP，請手動複製。",
+        });
+      } catch (notificationError) {
+        console.error(
+          "Failed to show copy error notification:",
+          notificationError,
+        );
+      }
+
+      return;
+    }
+
+    try {
+      const Swal = (await import("sweetalert2")).default;
+
+      await Swal.fire({
+        icon: "success",
+        title: "SUCCESS",
+        text: "已成功複製伺服器 IP",
+      });
+    } catch (error) {
+      console.error(
+        "Copied successfully, but failed to show notification:",
+        error,
+      );
+    }
   };
 
   return (

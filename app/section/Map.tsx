@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import mapsData from "../../datas/maps.json";
 import GreenBar from "../components/GreenBar";

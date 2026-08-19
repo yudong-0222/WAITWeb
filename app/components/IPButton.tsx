@@ -1,29 +1,50 @@
 "use client";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import Swal from "sweetalert2";
 
 export default function IPButton() {
   const [copied, setCopied] = useState(false);
   const ip = "waitmc.top";
 
-  const copyIP = () => {
-    navigator.clipboard.writeText(ip);
-    setCopied(true);
+  const copyIP = async () => {
+    try {
+      await navigator.clipboard.writeText(ip);
+      setCopied(true);
+    } catch (error) {
+      console.error("Failed to copy server IP:", error);
 
-    Swal.fire({
-      title: "SUCCESS",
-      text: "已成功複製伺服器 IP",
-      icon: "success",
-      background: "#050a10",
-      color: "#fff",
-      confirmButtonColor: "#00FF96",
-    });
+      try {
+        const Swal = (await import("sweetalert2")).default;
+        await Swal.fire({
+          icon: "error",
+          title: "FAILED",
+          text: "無法複製伺服器 IP，請手動複製。",
+        });
+      } catch (notificationError) {
+        console.error(
+          "Failed to show copy error notification:",
+          notificationError,
+        );
+      }
 
-    //After
-    setTimeout(() => setCopied(false), 3000);
+      return;
+    }
+
+    try {
+      const Swal = (await import("sweetalert2")).default;
+
+      await Swal.fire({
+        icon: "success",
+        title: "SUCCESS",
+        text: "已成功複製伺服器 IP",
+      });
+    } catch (error) {
+      console.error(
+        "Copied successfully, but failed to show notification:",
+        error,
+      );
+    }
   };
-
   return (
     <div className="flex items-center group">
       <div className="flex items-center bg-black/60 border border-white/10 rounded-md p-1 pl-4 backdrop-blur-sm shadow-2xl">
