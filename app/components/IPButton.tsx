@@ -7,22 +7,29 @@ export default function IPButton() {
   const ip = "waitmc.top";
 
   const copyIP = async () => {
-    await navigator.clipboard.writeText(ip);
-    setCopied(true);
+    try {
+      await navigator.clipboard.writeText(ip);
 
-    const Swal = (await import("sweetalert2")).default;
+      setCopied(true);
 
-    Swal.fire({
-      title: "SUCCESS",
-      text: "已成功複製伺服器 IP",
-      icon: "success",
-      background: "#050a10",
-      color: "#fff",
-      confirmButtonColor: "#00FF96",
-    });
+      const Swal = (await import("sweetalert2")).default;
 
-    //After
-    setTimeout(() => setCopied(false), 3000);
+      await Swal.fire({
+        icon: "success",
+        title: "SUCCESS",
+        text: "已成功複製伺服器 IP",
+      });
+    } catch (error) {
+      const Swal = (await import("sweetalert2")).default;
+
+      await Swal.fire({
+        icon: "error",
+        title: "FAILED",
+        text: "複製 IP 發生錯誤，請再試一次。",
+      });
+
+      console.error("Failed to copy server IP:", error);
+    }
   };
 
   return (
