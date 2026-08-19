@@ -86,16 +86,18 @@ export default function Map() {
             ))}
           </AnimatePresence>
         </motion.div>
-        <div className="mt-16 flex justify-center">
-          <button
-            className="px-10 py-3 border border-[#00FF96]/50 text-[#00FF96] font-bold text-sm uppercase tracking-widest hover:bg-[#00FF96] hover:text-black transition-all rounded-sm"
-            onClick={() => {
-              setActiveTab("ALL");
-            }}
-          >
-            View All Maps
-          </button>
-        </div>
+        {activeTab !== "ALL" && (
+          <div className="mt-16 flex justify-center">
+            <button
+              className="px-10 py-3 border border-[#00FF96]/50 text-[#00FF96] font-bold text-sm uppercase tracking-widest hover:bg-[#00FF96] hover:text-black transition-all rounded-sm"
+              onClick={() => {
+                setActiveTab("ALL");
+              }}
+            >
+              View All Maps
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
