@@ -9,9 +9,28 @@ export default function IPButton() {
   const copyIP = async () => {
     try {
       await navigator.clipboard.writeText(ip);
-
       setCopied(true);
+    } catch (error) {
+      console.error("Failed to copy server IP:", error);
 
+      try {
+        const Swal = (await import("sweetalert2")).default;
+        await Swal.fire({
+          icon: "error",
+          title: "FAILED",
+          text: "無法複製伺服器 IP，請手動複製。",
+        });
+      } catch (notificationError) {
+        console.error(
+          "Failed to show copy error notification:",
+          notificationError,
+        );
+      }
+
+      return;
+    }
+
+    try {
       const Swal = (await import("sweetalert2")).default;
 
       await Swal.fire({
@@ -20,18 +39,12 @@ export default function IPButton() {
         text: "已成功複製伺服器 IP",
       });
     } catch (error) {
-      const Swal = (await import("sweetalert2")).default;
-
-      await Swal.fire({
-        icon: "error",
-        title: "FAILED",
-        text: "複製 IP 發生錯誤，請再試一次。",
-      });
-
-      console.error("Failed to copy server IP:", error);
+      console.error(
+        "Copied successfully, but failed to show notification:",
+        error,
+      );
     }
   };
-
   return (
     <div className="flex items-center group">
       <div className="flex items-center bg-black/60 border border-white/10 rounded-md p-1 pl-4 backdrop-blur-sm shadow-2xl">

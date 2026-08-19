@@ -8,7 +8,27 @@ export default function Join() {
   const copyIP = async () => {
     try {
       await navigator.clipboard.writeText(ip);
+    } catch (error) {
+      console.error("Failed to copy server IP:", error);
 
+      try {
+        const Swal = (await import("sweetalert2")).default;
+        await Swal.fire({
+          icon: "error",
+          title: "COPY FAILED",
+          text: "無法複製伺服器 IP，請手動複製。",
+        });
+      } catch (notificationError) {
+        console.error(
+          "Failed to show copy error notification:",
+          notificationError,
+        );
+      }
+
+      return;
+    }
+
+    try {
       const Swal = (await import("sweetalert2")).default;
 
       await Swal.fire({
@@ -17,15 +37,10 @@ export default function Join() {
         text: "已成功複製伺服器 IP",
       });
     } catch (error) {
-      const Swal = (await import("sweetalert2")).default;
-
-      await Swal.fire({
-        icon: "error",
-        title: "FAILED",
-        text: "複製 IP 發生錯誤，請再試一次。",
-      });
-
-      console.error("Failed to copy server IP:", error);
+      console.error(
+        "Copied successfully, but failed to show notification:",
+        error,
+      );
     }
   };
 

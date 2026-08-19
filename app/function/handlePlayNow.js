@@ -1,6 +1,6 @@
 export const handlePlayNow = async () => {
   const Swal = (await import("sweetalert2")).default;
-  const result = Swal.fire({
+  const result = await Swal.fire({
     title:
       '<span class="font-mono text-[#00FF96]">SYSTEM_STATUS: OFFLINE</span>',
     html: `
@@ -37,7 +37,7 @@ export const handlePlayNow = async () => {
     },
   });
 
-  if ((await result).isConfirmed) {
+  if (result.isConfirmed) {
     window.open(
       "https://discord.gg/RNJQFYbjVp",
       "_blank",
