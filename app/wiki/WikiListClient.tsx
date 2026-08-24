@@ -32,7 +32,7 @@ export default function WikiListClient({
             Latest <span className="text-[#00FF96]">Intelligence</span>
           </h1>
           <p className="text-gray-500 tracking-widest text-sm uppercase">
-            {"// 關注 WAIT NETWORK 的最新動向"}
+            {"\>_ 關注 WAIT NETWORK 的最新動向"}
           </p>
         </header>
 

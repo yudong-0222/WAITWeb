@@ -1,50 +1,51 @@
 "use client";
-import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { motion } from "motion/react";
+// import {  AnimatePresence } from "motion/react";
+// import { useState } from "react";
 
 export default function IPButton() {
-  const [copied, setCopied] = useState(false);
+  // const [copied, setCopied] = useState(false);
   const ip = "敬請期待！";
 
-  const copyIP = async () => {
-    try {
-      await navigator.clipboard.writeText(ip);
-      setCopied(true);
-    } catch (error) {
-      console.error("Failed to copy server IP:", error);
+  // const copyIP = async () => {
+  //   try {
+  //     await navigator.clipboard.writeText(ip);
+  //     setCopied(true);
+  //   } catch (error) {
+  //     console.error("Failed to copy server IP:", error);
 
-      try {
-        const Swal = (await import("sweetalert2")).default;
-        await Swal.fire({
-          icon: "error",
-          title: "FAILED",
-          text: "無法複製伺服器 IP，請手動複製。",
-        });
-      } catch (notificationError) {
-        console.error(
-          "Failed to show copy error notification:",
-          notificationError,
-        );
-      }
+  //     try {
+  //       const Swal = (await import("sweetalert2")).default;
+  //       await Swal.fire({
+  //         icon: "error",
+  //         title: "FAILED",
+  //         text: "無法複製伺服器 IP，請手動複製。",
+  //       });
+  //     } catch (notificationError) {
+  //       console.error(
+  //         "Failed to show copy error notification:",
+  //         notificationError,
+  //       );
+  //     }
 
-      return;
-    }
+  //     return;
+  //   }
 
-    try {
-      const Swal = (await import("sweetalert2")).default;
+  //   try {
+  //     const Swal = (await import("sweetalert2")).default;
 
-      await Swal.fire({
-        icon: "success",
-        title: "SUCCESS",
-        text: "已成功複製伺服器 IP",
-      });
-    } catch (error) {
-      console.error(
-        "Copied successfully, but failed to show notification:",
-        error,
-      );
-    }
-  };
+  //     await Swal.fire({
+  //       icon: "success",
+  //       title: "SUCCESS",
+  //       text: "已成功複製伺服器 IP",
+  //     });
+  //   } catch (error) {
+  //     console.error(
+  //       "Copied successfully, but failed to show notification:",
+  //       error,
+  //     );
+  //   }
+  // };
   return (
     <div className="flex items-center group">
       <div className="flex items-center bg-black/60 border border-white/10 rounded-md p-1 pl-4 backdrop-blur-sm shadow-2xl">
@@ -63,11 +64,12 @@ export default function IPButton() {
           // onClick={copyIP}
           className="px-5 py-2 bg-transparent border border-[#00FF96]/50 text-[#00FF96] text-xs font-bold rounded-md hover:bg-[#00FF96] hover:text-black transition-all duration-200 uppercase"
         >
-          {copied ? "Copied!" : "Copy"}
+          {/* {copied ? "Copied!" : "Copy"} */}
+          `Copy`
         </motion.button>
       </div>
       {/* A messageg that telling user copied!!!! cool stuff :D */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {copied && (
           <motion.span
             initial={{ opacity: 0, x: -20 }}
@@ -78,7 +80,7 @@ export default function IPButton() {
             {"// COPIED_SUCCESS"}
           </motion.span>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </div>
   );
 }
