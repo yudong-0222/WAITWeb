@@ -109,18 +109,10 @@ export default function Footer() {
         </div>
 
         {/* COPRGIHT */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-4">
           <p className="text-gray-600 text-[9px] font-mono tracking-widest uppercase">
-            © {currentYear} WAIT NETWORK //
+            © 2021 - {currentYear} WAIT NETWORK // ALL RIGHTS RESERVED
           </p>
-          <div className="flex gap-6">
-            <div className="text-gray-700 text-[9px] font-mono">
-              ENCRYPTED_SSL
-            </div>
-            <div className="text-gray-700 text-[9px] font-mono">
-              V2.4.0_PROD
-            </div>
-          </div>
         </div>
       </div>
     </footer>
