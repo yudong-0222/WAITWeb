@@ -32,7 +32,7 @@ export default function WikiListClient({
             Latest <span className="text-[#00FF96]">Intelligence</span>
           </h1>
           <p className="text-gray-500 tracking-widest text-sm uppercase">
-            {"// 關注 WAIT NETWORK 的最新動向"}
+            {"\>_ 關注 WAIT NETWORK 的最新動向"}
           </p>
         </header>
 
@@ -74,10 +74,10 @@ export default function WikiListClient({
                           {topStyle.label}
                         </span>
                       </span>
-                      <h2 className="text-4xl font-black mb-4 tracking-tighter italic">
+                      <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter italic">
                         {topStory.title}
                       </h2>
-                      <p className="text-gray-400 text-sm max-w-xl mb-6 font-sans">
+                      <p className="text-white text-sm md:text-base max-w-xl mb-6 font-bold">
                         {topStory.description}
                       </p>
                       <button

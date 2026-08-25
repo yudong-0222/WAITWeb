@@ -2,7 +2,7 @@ export const handlePlayNow = async () => {
   const Swal = (await import("sweetalert2")).default;
   const result = await Swal.fire({
     title:
-      '<span class="font-mono text-[#00FF96]">SYSTEM_STATUS: OFFLINE</span>',
+      '<span class="font-mono text-[#FF6B6B]">SYSTEM_STATUS: OFFLINE</span>',
     html: `
       <div class="text-left font-mono space-y-4 p-2">
         <div class="space-y-1">
@@ -15,8 +15,9 @@ export const handlePlayNow = async () => {
         
         <p class="text-sm text-gray-300 leading-relaxed">
           偵測到連線請求... <br/>
-          <span class="text-red-500">錯誤：遠端主機已強制關閉一個現存的連線。</span><br/>
-          目前仍處於開發階段，加入 Discord 獲取測試資格與更新資訊。
+          <span class="text-[#FF6B6B]">錯誤：遠端主機已強制關閉一個現存的連線。</span><br/>
+          目前仍處於開發階段，
+          <span class="font-bold font-mono">加入 Discord 獲取測試資格與更新資訊。</span>
         </p>
       </div>
     `,

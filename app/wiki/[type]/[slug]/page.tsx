@@ -138,13 +138,18 @@ export default async function PostPage({
               {post.frontmatter.title}
             </h1>
             {post.frontmatter.image && (
-              <div className="relative aspect-video w-full mb-8">
+              <div className="group relative aspect-video w-full mb-8 overflow-hidden rounded-sm">
                 <Image
                   src={post.frontmatter.image}
                   alt="cover"
                   fill
                   sizes="(min-width: 1200px) 848px, (min-width: 1024px) calc(100vw - 352px), calc(100vw - 48px)"
-                  className="object-cover rounded-sm"
+                  className="
+                    object-cover 
+                    transition-transform 
+                    duration-700 
+                    group-hover:scale-110
+                  "
                 />
               </div>
             )}
@@ -190,7 +195,7 @@ export default async function PostPage({
         </div>
 
         {/* TOC - PC */}
-        <aside className="hidden lg:block w-64 sticky top-32 shrink-0">
+        <aside className="hidden lg:block w-64 sticky top-20 shrink-0">
           <div className="border-l border-white/5 pl-6">
             <h3
               className={`${style.text} font-mono text-[12px] mb-6 tracking-[0.2em] uppercase opacity-95`}

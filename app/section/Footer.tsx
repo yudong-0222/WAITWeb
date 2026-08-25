@@ -37,7 +37,7 @@ export default function Footer() {
                     href="/"
                     className="hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
                   >
-                    {"//"} HOME
+                    {"\>_"} HOME
                   </Link>
                 </li>
                 <li>
@@ -45,7 +45,7 @@ export default function Footer() {
                     href="#maps"
                     className="hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
                   >
-                    {"//"} BATTLEGROUND
+                    {"\>_"} BATTLEGROUND
                   </Link>
                 </li>
                 <li>
@@ -53,7 +53,7 @@ export default function Footer() {
                     href="#mode"
                     className="hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
                   >
-                    {"//"} MODES
+                    {"\>_"} MODES
                   </Link>
                 </li>
               </ul>
@@ -68,7 +68,7 @@ export default function Footer() {
                     href="https://discord.gg/RNJQFYbjVp"
                     className="hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
                   >
-                    {"//"} DISCORD
+                    {"\>_"} DISCORD
                   </Link>
                 </li>
                 <li>
@@ -76,7 +76,7 @@ export default function Footer() {
                     href="/wiki"
                     className="relative inline-block hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
                   >
-                    {"//"} WIKI
+                    {"\>_"} WIKI
                     <span
                       aria-hidden="true"
                       className="absolute -right-2 -top-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-black/70 shadow-[0_0_8px_rgba(239,68,68,0.8)]"
@@ -88,7 +88,7 @@ export default function Footer() {
                     href="/"
                     className="hover:text-[#00FF96] transition-colors cursor-pointer tracking-tighter hover:translate-x-1 duration-300"
                   >
-                    {"//"} STORE
+                    {"\>_"} STORE
                   </Link>
                 </li>
               </ul>
@@ -109,18 +109,10 @@ export default function Footer() {
         </div>
 
         {/* COPRGIHT */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-4">
           <p className="text-gray-600 text-[9px] font-mono tracking-widest uppercase">
-            © {currentYear} WAIT NETWORK //
+            © 2021 - {currentYear} WAIT NETWORK // ALL RIGHTS RESERVED
           </p>
-          <div className="flex gap-6">
-            <div className="text-gray-700 text-[9px] font-mono">
-              ENCRYPTED_SSL
-            </div>
-            <div className="text-gray-700 text-[9px] font-mono">
-              V2.4.0_PROD
-            </div>
-          </div>
         </div>
       </div>
     </footer>
