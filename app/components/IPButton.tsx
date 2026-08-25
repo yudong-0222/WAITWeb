@@ -61,11 +61,17 @@ export default function IPButton() {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.95 }}
-          // onClick={copyIP}
+          onClick={() => {
+            window.open(
+              "https://discord.gg/RNJQFYbjVp",
+              "_blank",
+              "noopener,noreferrer",
+            );
+          }}
           className="px-5 py-2 bg-transparent border border-[#00FF96]/50 text-[#00FF96] text-xs font-bold rounded-md hover:bg-[#00FF96] hover:text-black transition-all duration-200 uppercase"
         >
           {/* {copied ? "Copied!" : "Copy"} */}
-          `Copy`
+          Join Discord
         </motion.button>
       </div>
       {/* A messageg that telling user copied!!!! cool stuff :D */}
