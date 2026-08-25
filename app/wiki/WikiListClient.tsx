@@ -77,7 +77,7 @@ export default function WikiListClient({
                       <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter italic">
                         {topStory.title}
                       </h2>
-                      <p className="text-white-400 text-sm md:text-base max-w-xl mb-6 font-bold">
+                      <p className="text-white text-sm md:text-base max-w-xl mb-6 font-bold">
                         {topStory.description}
                       </p>
                       <button
